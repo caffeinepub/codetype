@@ -1,0 +1,123 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T02:35:54.509Z",
+  "summary": "The diff implements a comprehensive CodeType web application covering most of the requirements. All 8 pages are present with navigation, settings context, backend actor, and typing functionality. However, several specific acceptance criteria have gaps or missing details based on the available diff evidence.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Difficulty selector has Easy, Medium, Hard options and 2 more per AC",
+      "reason": "The AC specifies difficulty selector has Easy, Medium, Hard and 2 more. The diff shows only Easy, Medium, Hard in DIFFICULTY_LABELS. No evidence of additional difficulty levels beyond these three.",
+      "evidence": [
+        "frontend/src/pages/Practice.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Finger Placement Guide section uses the finger-placement.dim_800x300.png image asset",
+      "reason": "The Learn page exists with a finger placement section, but the required image asset finger-placement.dim_800x300.png is not referenced in the diff.",
+      "evidence": [
+        "frontend/src/pages/Learn.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Data persists across canister upgrades",
+      "reason": "The backend uses Map.empty() but no stable var declarations or system upgrade hooks (preupgrade/postupgrade) are visible in the backend code to ensure persistence across canister upgrades.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "saveResult update function and getResults query function as named in AC",
+      "reason": "The backend exposes submitTestResult and getAllTestResults instead of saveResult and getResults as specified in the acceptance criteria.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Level-Based challenges show progression from Level 1 through Level 10",
+      "reason": "The Challenges page shows LevelCard with only the first 3 unlocked for demo, and there is no explicit evidence that all 10 levels are defined.",
+      "evidence": [
+        "frontend/src/pages/Challenges.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Recent activity table shows last 10 test results with date, WPM, accuracy, mode columns",
+      "reason": "Profile page slices results to 10 but the diff is truncated and does not confirm all required columns are rendered in the table.",
+      "evidence": [
+        "frontend/src/pages/Profile.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication integration with full AuthClient login/clear flow",
+      "reason": "The diff includes a full useInternetIdentity hook with AuthClient, login and clear functions, and DelegationIdentity handling. The build request explicitly lists User authentication or Internet Identity login as a non-goal.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Per-user Principal-based test result storage in backend",
+      "reason": "The backend stores results keyed by caller Principal using Map of Principal to TestResult array, adding per-user isolation that was not requested. The spec has no authentication requirement.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "TestMode backend variant uses #words, #sentences, #custom instead of the four specified test modes",
+      "reason": "The backend TestMode variant uses #words, #sentences, #custom which do not match the four test modes specified: Timed Test, Speed Test, Accuracy Test, Custom Test.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Additional granular backend query functions beyond the specified saveResult and getResults",
+      "reason": "The backend exposes getBestWPM, getAverageWPM, getAverageAccuracy, getTotalTests, getDailyStreaks, getStreakCalendar, getTodaysResults which were not explicitly requested in the spec.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "confidence": 0.63,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/Navigation.tsx",
+    "frontend/src/components/TestResults.tsx",
+    "frontend/src/components/TypingArea.tsx",
+    "frontend/src/contexts/SettingsContext.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/Challenges.tsx",
+    "frontend/src/pages/Home.tsx",
+    "frontend/src/pages/Learn.tsx",
+    "frontend/src/pages/Practice.tsx",
+    "frontend/src/pages/Profile.tsx",
+    "frontend/src/pages/Progress.tsx",
+    "frontend/src/pages/Settings.tsx",
+    "frontend/src/pages/Test.tsx",
+    "frontend/src/utils/challenges.ts",
+    "frontend/src/utils/codeSnippets.ts",
+    "frontend/src/utils/typingMetrics.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

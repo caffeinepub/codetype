@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&family=Ubuntu+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Light mode - clean off-white with teal/green accents */
+    --background: 0.97 0.005 200;
+    --foreground: 0.15 0.02 240;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 240;
+    --primary: 0.55 0.18 155;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.93 0.01 200;
+    --secondary-foreground: 0.2 0.02 240;
+    --muted: 0.93 0.01 200;
+    --muted-foreground: 0.5 0.02 240;
+    --accent: 0.88 0.08 155;
+    --accent-foreground: 0.15 0.05 155;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.01 200;
+    --input: 0.88 0.01 200;
+    --ring: 0.55 0.18 155;
+
+    /* Neon accents */
+    --neon-green: 0.78 0.22 145;
+    --neon-cyan: 0.75 0.18 195;
+    --neon-glow: 0.78 0.22 145;
+
+    /* Chart colors */
+    --chart-1: 0.55 0.18 155;
+    --chart-2: 0.65 0.18 195;
+    --chart-3: 0.7 0.2 60;
+    --chart-4: 0.6 0.2 280;
+    --chart-5: 0.65 0.22 30;
+
+    --sidebar: 0.95 0.01 200;
+    --sidebar-foreground: 0.15 0.02 240;
+    --sidebar-primary: 0.55 0.18 155;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.88 0.08 155;
+    --sidebar-accent-foreground: 0.15 0.05 155;
+    --sidebar-border: 0.88 0.01 200;
+    --sidebar-ring: 0.55 0.18 155;
+
+    /* Font settings */
+    --font-mono: 'Fira Code', monospace;
+    --font-size-base: 16px;
+    --typing-font-size: 1rem;
+  }
+
+  .dark {
+    /* Dark mode - deep charcoal with neon accents */
+    --background: 0.1 0.01 240;
+    --foreground: 0.92 0.01 200;
+    --card: 0.14 0.015 240;
+    --card-foreground: 0.92 0.01 200;
+    --popover: 0.16 0.015 240;
+    --popover-foreground: 0.92 0.01 200;
+    --primary: 0.72 0.22 145;
+    --primary-foreground: 0.08 0.01 240;
+    --secondary: 0.18 0.015 240;
+    --secondary-foreground: 0.85 0.01 200;
+    --muted: 0.18 0.015 240;
+    --muted-foreground: 0.55 0.02 240;
+    --accent: 0.22 0.04 155;
+    --accent-foreground: 0.72 0.22 145;
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.02 240;
+    --input: 0.22 0.02 240;
+    --ring: 0.72 0.22 145;
+
+    /* Neon accents */
+    --neon-green: 0.78 0.25 145;
+    --neon-cyan: 0.75 0.2 195;
+    --neon-glow: 0.78 0.25 145;
+
+    /* Chart colors */
+    --chart-1: 0.72 0.22 145;
+    --chart-2: 0.68 0.2 195;
+    --chart-3: 0.75 0.22 60;
+    --chart-4: 0.65 0.22 280;
+    --chart-5: 0.7 0.25 30;
+
+    --sidebar: 0.12 0.015 240;
+    --sidebar-foreground: 0.92 0.01 200;
+    --sidebar-primary: 0.72 0.22 145;
+    --sidebar-primary-foreground: 0.08 0.01 240;
+    --sidebar-accent: 0.22 0.04 155;
+    --sidebar-accent-foreground: 0.72 0.22 145;
+    --sidebar-border: 0.22 0.02 240;
+    --sidebar-ring: 0.72 0.22 145;
+  }
+
+  /* Font size variants */
+  .font-size-sm { --typing-font-size: 0.85rem; font-size: 14px; }
+  .font-size-md { --typing-font-size: 1rem; font-size: 16px; }
+  .font-size-lg { --typing-font-size: 1.15rem; font-size: 18px; }
+  .font-size-xl { --typing-font-size: 1.3rem; font-size: 20px; }
+
+  /* Font family variants */
+  .font-fira-code { --font-mono: 'Fira Code', monospace; }
+  .font-jetbrains-mono { --font-mono: 'JetBrains Mono', monospace; }
+  .font-source-code-pro { --font-mono: 'Source Code Pro', monospace; }
+  .font-roboto-mono { --font-mono: 'Roboto Mono', monospace; }
+  .font-ubuntu-mono { --font-mono: 'Ubuntu Mono', monospace; }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--font-size-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  .typing-area {
+    font-family: var(--font-mono);
+    font-size: var(--typing-font-size);
+  }
+
+  /* Neon glow effects */
+  .neon-text {
+    color: oklch(var(--neon-green));
+    text-shadow: 0 0 10px oklch(var(--neon-green) / 0.5);
+  }
+
+  .neon-border {
+    border-color: oklch(var(--neon-green));
+    box-shadow: 0 0 8px oklch(var(--neon-green) / 0.3);
+  }
+
+  .neon-glow-card {
+    box-shadow: 0 0 20px oklch(var(--neon-green) / 0.1), 0 4px 24px rgba(0,0,0,0.2);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--primary));
+  }
+
+  /* Smooth transitions */
+  a, button {
+    transition: all 0.2s ease;
+  }
+
+  /* Code/typing area */
+  .code-char {
+    font-family: var(--font-mono);
+    font-size: var(--typing-font-size);
+    position: relative;
+  }
+
+  .code-char.correct {
+    color: oklch(var(--neon-green));
+  }
+
+  .code-char.incorrect {
+    color: oklch(var(--destructive));
+    background-color: oklch(var(--destructive) / 0.15);
+    border-radius: 2px;
+  }
+
+  .code-char.current {
+    background-color: oklch(var(--primary) / 0.3);
+    border-bottom: 2px solid oklch(var(--primary));
+    animation: cursor-blink 1s step-end infinite;
+  }
+
+  .code-char.pending {
+    color: oklch(var(--muted-foreground));
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { border-bottom-color: oklch(var(--primary)); }
+    50% { border-bottom-color: transparent; }
+  }
+
+  /* Streak calendar */
+  .streak-day {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  .streak-day.active {
+    background-color: oklch(var(--neon-green));
+    box-shadow: 0 0 4px oklch(var(--neon-green) / 0.5);
+  }
+
+  .streak-day.inactive {
+    background-color: oklch(var(--border));
+  }
+
+  /* Mobile touch improvements */
+  @media (max-width: 768px) {
+    .typing-area {
+      font-size: calc(var(--typing-font-size) * 0.9);
+    }
+  }
+}

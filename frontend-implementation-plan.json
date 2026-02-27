@@ -1,0 +1,281 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "CodeType — Coding Typing Test Web Application Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create multi-page React application with persistent responsive navigation",
+      "acceptanceCriteria": [
+        "All 8 pages are accessible from the navigation",
+        "Active page is visually highlighted in the nav",
+        "Navigation collapses to a hamburger menu on mobile screens",
+        "Navigation persists across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add React Router configuration with routes for Home, Practice, Learn, Test, Progress, Challenges, Profile, and Settings pages. Wrap the application with a persistent navigation layout component."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create a persistent navigation component with links to all 8 pages (Home, Practice, Learn, Test, Progress, Challenges, Profile, Settings). Include active link highlighting using React Router's NavLink. Implement responsive behavior with a hamburger menu for mobile screens using shadcn/ui Sheet component. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a layout wrapper component that includes the Navigation component and an Outlet for page content. This ensures navigation persists across all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build Home page with hero section, features overview, and contact form",
+      "acceptanceCriteria": [
+        "Hero section renders with headline and CTA button",
+        "Clicking 'Start Typing' navigates to the Practice page",
+        "Features Overview section displays at least 4 features with icons",
+        "Contact/Feedback form renders with name, email, message fields and submit button",
+        "Home page is responsive across all screen sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create the Home page with three sections: (1) Hero section with the generated hero-bg image (frontend/public/assets/generated/hero-bg.dim_1440x800.png) as background, headline introducing CodeType as a coding-focused typing trainer, brief description, and a 'Start Typing' button that navigates to /practice using React Router Link; (2) Features Overview section with at least 4 features displayed as cards with icons and descriptions (e.g., multi-language support, real-time feedback, progress tracking, challenge modes); (3) Contact/Feedback section with a form containing name, email, and message input fields plus a submit button using shadcn/ui Form and Input components. Verify shadcn/ui component usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build Practice page with real-time typing area, metrics, and language/difficulty selection",
+      "acceptanceCriteria": [
+        "Typing area renders a code snippet monospace font",
+        "Each keystroke immediately colors the character green (correct) or red (incorrect)",
+        "WPM updates in real time during typing",
+        "Accuracy percentage updates in real time",
+        "Language selector has Java, C, HTML/CSS, Python, SQL options",
+        "Difficulty selector has Easy, Medium, Hard options",
+        "Changing language or difficulty loads a new appropriate snippet",
+        "Reset button restarts the current snippet"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Practice.tsx",
+          "operation": "create",
+          "description": "Create the Practice page with: (1) language selector dropdown (Java, C, HTML/CSS, Python, SQL) using shadcn/ui Select component; (2) difficulty selector (Easy, Medium, Hard) using shadcn/ui Select component; (3) a typing area displaying a code snippet in monospace font where each character is individually styled green (correct) or red (incorrect) based on real-time keystroke comparison; (4) live WPM and accuracy metrics displayed above the typing area, updated on every keystroke; (5) a Reset/New Snippet button using shadcn/ui Button. Store a collection of hardcoded code snippets per language and difficulty. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/codeSnippets.ts",
+          "operation": "create",
+          "description": "Create a utility module exporting hardcoded code snippets organized by language (Java, C, HTML/CSS, Python, SQL) and difficulty (Easy, Medium, Hard). Include at least 3 snippets per language-difficulty combination."
+        },
+        {
+          "path": "frontend/src/utils/typingMetrics.ts",
+          "operation": "create",
+          "description": "Create utility functions to calculate WPM (words per minute) and accuracy percentage based on typed characters, correct characters, incorrect characters, and elapsed time."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Learn page with typing tips, finger placement guide, common mistakes, and keyboard shortcuts",
+      "acceptanceCriteria": [
+        "All four sections are present and labeled clearly",
+        "Typing Tips section has at least 5 tips",
+        "Finger Placement Guide section has a clear visual or diagram description",
+        "Common Coding Mistakes section has at least 5 entries",
+        "Keyboard Shortcuts section renders a structured table with shortcut + description columns",
+        "Page is readable and responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Learn.tsx",
+          "operation": "create",
+          "description": "Create the Learn page with four informational sections: (1) Typing Tips for Programmers — list at least 5 actionable tips specific to coding (e.g., use home row position, practice common brackets, learn IDE shortcuts); (2) Finger Placement Guide — display the generated finger-placement image (frontend/public/assets/generated/finger-placement.dim_800x300.png) along with descriptive text; (3) Common Coding Mistakes — list at least 5 frequent typing errors coders make (e.g., bracket mismatch, missing semicolons, incorrect indentation); (4) Keyboard Shortcuts — render a table using shadcn/ui Table component showing common IDE/editor shortcuts (VS Code, terminal) with shortcut keys and descriptions. Verify shadcn/ui component usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build Test page with four test modes: Timed, Speed, Accuracy, and Custom",
+      "acceptanceCriteria": [
+        "Four test modes are accessible via tabs or mode selector cards",
+        "Timed Test mode has duration options (15s, 30s, 60s, 120s) and counts down",
+        "Speed Test mode starts timer on first keystroke and stops on completion",
+        "Accuracy Test mode enforces a minimum accuracy threshold",
+        "Custom Test mode has a textarea for pasting user's own code snippet",
+        "Results screen shows WPM, accuracy, and elapsed/remaining time after each test"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Test.tsx",
+          "operation": "create",
+          "description": "Create the Test page with mode selection using shadcn/ui Tabs component. Include four test modes: (1) Timed Test — dropdown or radio buttons to select duration (15s, 30s, 60s, 120s), countdown timer, typing area with real-time feedback; (2) Speed Test — typing area that starts timer on first keystroke and stops when snippet is completed; (3) Accuracy Test — typing area with strict error feedback and a target accuracy threshold (e.g., 95%); (4) Custom Test — textarea for user to paste their own code snippet, then typing area for that snippet. After test completion, display a results screen showing final WPM, accuracy, and time. Include a button to save results to backend via submitTestResult. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/TestResults.tsx",
+          "operation": "create",
+          "description": "Create a results display component that shows WPM, accuracy percentage, and elapsed/remaining time after a typing test completes. Include a 'Save Result' button that calls the backend submitTestResult function and a 'Try Again' button to reset the test. Use shadcn/ui Card and Button components. Verify shadcn/ui component usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build Progress/Stats page displaying WPM history, accuracy graph, daily streaks, and summary stats from backend",
+      "acceptanceCriteria": [
+        "WPM history chart renders with session data points",
+        "Accuracy graph renders with session data points",
+        "Daily streak counter shows current streak",
+        "Calendar heatmap or similar visualization shows active test days",
+        "Summary stats (best WPM, avg WPM, total tests, avg accuracy) are displayed",
+        "Charts and stats update when new test results are saved"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Progress.tsx",
+          "operation": "create",
+          "description": "Create the Progress/Stats page that fetches data from backend using getAllTestResults, getBestWPM, getAverageWPM, getTotalTests, getAverageAccuracy, getDailyStreaks, and getStreakCalendar methods. Display: (1) WPM History — line chart showing WPM over time using a charting library (e.g., recharts); (2) Accuracy Graph — line or bar chart showing accuracy percentage over sessions; (3) Daily Streaks — streak counter and a calendar heatmap visualizing active test days from getStreakCalendar data; (4) Summary stats cards showing best WPM, average WPM, total tests, and average accuracy. Use shadcn/ui Card components for layout. Verify shadcn/ui component usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build Challenges page with daily, weekly, and level-based challenge categories",
+      "acceptanceCriteria": [
+        "Three sections: Daily, Weekly, and Level-Based are clearly separated",
+        "Each challenge renders as a card with title, description, and requirements",
+        "'Start Challenge' button launches the test with the challenge configuration",
+        "Level-Based challenges show progression (e.g., Level 1 through Level 10)",
+        "Daily and Weekly challenges show a reset timer or refresh date"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Challenges.tsx",
+          "operation": "create",
+          "description": "Create the Challenges page with three sections: (1) Daily Challenges — display challenge cards with title, description, requirements (e.g., 'Type a Python snippet in under 60s with 90% accuracy'), and refresh date/timer; (2) Weekly Challenges — similar cards for longer/harder challenges with weekly reset timer; (3) Level-Based Challenges — progression of challenges from Level 1 (beginner) to Level 10 (expert) with clear level indicators. Each challenge card includes a 'Start Challenge' button that navigates to the Test page with pre-configured parameters (language, difficulty, duration, mode) passed via React Router state. Use shadcn/ui Card and Badge components. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/challenges.ts",
+          "operation": "create",
+          "description": "Create a utility module defining hardcoded challenge data structures for daily, weekly, and level-based challenges. Each challenge includes title, description, requirements (target WPM, accuracy, duration), language, difficulty, and test mode configuration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build Profile page displaying user info, lifetime stats, and recent test history",
+      "acceptanceCriteria": [
+        "Profile page displays display name with an edit option",
+        "Avatar placeholder is shown",
+        "Lifetime stats section shows total tests, best WPM, avg accuracy, streak",
+        "Recent activity table shows last 10 test results with date, WPM, accuracy, mode"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Profile.tsx",
+          "operation": "create",
+          "description": "Create the Profile page displaying: (1) user's display name (editable via inline input or dialog) stored in localStorage; (2) avatar placeholder (static image or icon); (3) lifetime stats summary fetching from backend using getTotalTests, getBestWPM, getAverageAccuracy, and getDailyStreaks; (4) recent test history table showing the last 10 test results from getAllTestResults with columns for date, WPM, accuracy, and test mode. Use shadcn/ui Card, Table, Input, and Button components. Verify shadcn/ui component usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement global Settings with theme, font size, font style, and backspace toggle persisting in localStorage",
+      "acceptanceCriteria": [
+        "Settings panel or page is reachable from navigation on every page",
+        "Light/Dark mode toggle switches the entire app theme",
+        "Theme preference persists across page refreshes via localStorage",
+        "Font size control has at least 4 size levels and updates text throughout the app",
+        "Font style dropdown lists at least 5 Google Fonts monospace options and applies to the typing area",
+        "Backspace Allowed toggle, when disabled, prevents the backspace key from deleting characters during typing",
+        "All settings persist in localStorage"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Settings.tsx",
+          "operation": "create",
+          "description": "Create the Settings page with: (1) Light/Dark mode toggle using shadcn/ui Switch component, applying theme globally via a theme context or CSS class on document root, persisting in localStorage; (2) Font Size control with radio buttons or slider offering at least 4 levels (small, medium, large, x-large), persisting in localStorage and applying via CSS custom property or class; (3) Font Style selector dropdown using shadcn/ui Select listing at least 5 Google Fonts monospace options (Fira Code, JetBrains Mono, Source Code Pro, Roboto Mono, Ubuntu Mono), persisting in localStorage and applying to typing areas; (4) Backspace Allowed toggle using shadcn/ui Switch, persisting in localStorage and accessed by typing components to conditionally prevent backspace keydown events. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/contexts/SettingsContext.tsx",
+          "operation": "create",
+          "description": "Create a React context and provider for managing global settings state (theme, fontSize, fontStyle, backspaceAllowed). Load initial values from localStorage on mount, update localStorage on state changes, and provide helper functions to components. Export hooks to access and update settings."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Import Google Fonts (Fira Code, JetBrains Mono, Source Code Pro, Roboto Mono, Ubuntu Mono) using @import statements at the top of the file. Define CSS custom properties for theme colors (dark and light mode variants), font sizes (small, medium, large, x-large), and font families. Add classes for theme switching (e.g., .dark, .light) and font size variants."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the application with the SettingsProvider context. Apply theme class to the root element based on current theme setting. Ensure font size and font style settings are applied globally via CSS custom properties or class names on the root element."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Apply cohesive dark-tech terminal-inspired visual theme with neon accents and smooth transitions",
+      "acceptanceCriteria": [
+        "Dark mode uses deep charcoal/near-black backgrounds with neon accent colors",
+        "Light mode uses clean off-white/gray backgrounds with complementary accents",
+        "Code snippets and typing areas use a monospace Google Font",
+        "Cards, buttons, and interactive elements have consistent styling with hover/focus states",
+        "Theme is applied consistently across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS custom properties for the dark-tech theme: deep charcoal/near-black backgrounds, neon accent colors (electric green, cyan), off-white/light gray for light mode, muted accent tones for light mode. Apply monospace typography (from Google Fonts) to code elements and typing areas. Add global styles for card layouts with subtle borders and glows, smooth transitions on hover/focus states for buttons and interactive elements. Ensure consistent typography hierarchy across all pages."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with custom colors matching the dark-tech aesthetic (neon green, cyan, charcoal, off-white). Define custom font families referencing the imported Google Fonts. Add transition utilities for smooth hover/focus effects. Configure theme variants for dark and light modes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Ensure full responsive design across mobile, tablet, and desktop with touch support",
+      "acceptanceCriteria": [
+        "Layout renders correctly at 320px, 768px, and 1280px widths",
+        "No horizontal overflow on any page at mobile widths",
+        "Charts resize and remain readable on mobile",
+        "Typing area is usable on touch devices",
+        "Navigation is usable on all screen sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add responsive base styles ensuring no horizontal overflow at mobile widths (320px+). Define responsive font sizes, spacing, and container widths using Tailwind breakpoints or media queries. Ensure touch-friendly tap targets (minimum 44px) for buttons and interactive elements."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Ensure the Navigation component is fully responsive: hamburger menu for mobile (<768px), full sidebar or top navigation for tablet/desktop. Test at 320px, 768px, and 1280px widths. Verify shadcn/ui component usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Progress.tsx",
+          "operation": "modify",
+          "description": "Ensure charts and stats components are responsive: charts resize and reflow on smaller screens, use responsive Tailwind grid/flexbox layouts. Test at mobile, tablet, and desktop widths to ensure readability and usability."
+        },
+        {
+          "path": "frontend/src/pages/Practice.tsx",
+          "operation": "modify",
+          "description": "Ensure the typing area is usable on touch devices: test touch input on mobile, ensure no layout shift or overflow. Use responsive padding and font sizes for the typing area."
+        },
+        {
+          "path": "frontend/src/pages/Test.tsx",
+          "operation": "modify",
+          "description": "Ensure all test modes and the results screen are responsive on mobile, tablet, and desktop. Test mode selector tabs should stack or scroll horizontally on narrow screens."
+        }
+      ]
+    }
+  ]
+}

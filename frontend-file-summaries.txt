@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Main application entry point that sets up TanStack Router with all 8 routes (Home, Practice, Learn, Test, Progress, Challenges, Profile, Settings), wraps the app with ThemeProvider and SettingsProvider, and renders the Layout with Toaster.",
+  "frontend/src/pages/Test.tsx": "Test page with four modes (Timed, Speed, Accuracy, Custom) using a refactored `useTypingTest` hook that uses separate `isComplete` and `isActive` boolean flags instead of a union type, fixing the TypeScript narrowing errors.",
+  "frontend/src/pages/Progress.tsx": "Progress & Stats page that fetches all test results, WPM/accuracy stats, streaks, and calendar data from the backend, displaying them via Recharts line/bar charts, a streak calendar heatmap, summary stat cards, and a recent sessions table.",
+  "frontend/src/pages/Challenges.tsx": "Challenges page with three sections (Daily, Weekly, Level-Based) rendering challenge cards with requirements, badges, reset dates, and Start Challenge buttons that navigate to the Test page.",
+  "frontend/src/pages/Profile.tsx": "Profile page displaying an editable display name (persisted in localStorage), avatar with initials, lifetime stats fetched from the backend, and a recent activity table showing the last 10 test results.",
+  "frontend/src/pages/Settings.tsx": "Settings page with controls for light/dark theme toggle, font size selector (4 levels), font style dropdown (5 Google Fonts), and backspace allowed toggle — all persisted via SettingsContext/localStorage."
+}

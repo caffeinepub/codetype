@@ -1,0 +1,217 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-multi-page-react-application-with-a-persistent-navigation-sidebar-topbar-containing-links-to-home-practice-learn-test-progress-stats-challenges-profile-and-settings-navigation-must-be-fully-responsive-hamburger-menu-on-mobile",
+      "featureTitle": "Create a multi-page React application with a persistent navigation sidebar/topbar containing links to: Home, Practice, Learn, Test, Progress/Stats, Challenges, Profile, and Settings. Navigation must be fully responsive (hamburger menu on mobile).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/Navigation.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-home-page-with-1-a-hero-section-introducing-the-app-as-a-coding-focused-typing-trainer-with-a-headline-brief-description-and-a-prominent-start-typing-cta-button-that-navigates-to-the-practice-page-2-a-features-overview-section-showcasing-key-app-features-with-icons-and-short-descriptions-3-a-contact-feedback-section-with-a-simple-form-name-email-message-fields-and-a-submit-button",
+      "featureTitle": "Build the Home page with: (1) a hero section introducing the app as a coding-focused typing trainer with a headline, brief description, and a prominent 'Start Typing' CTA button that navigates to the Practice page; (2) a Features Overview section showcasing key app features with icons and short descriptions; (3) a Contact/Feedback section with a simple form (name, email, message fields) and a submit button.",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-practice-page-with-1-a-typing-area-displaying-a-code-snippet-where-typed-characters-are-highlighted-correct-green-or-incorrect-red-in-real-time-2-live-wpm-and-accuracy-metrics-displayed-above-or-beside-the-typing-area-3-a-language-selector-with-options-java-c-html-css-python-sql-4-a-difficulty-selector-with-options-easy-medium-hard-difficulty-affects-snippet-complexity-and-length-5-a-reset-new-snippet-button",
+      "featureTitle": "Build the Practice page with: (1) a typing area displaying a code snippet where typed characters are highlighted correct (green) or incorrect (red) in real time; (2) live WPM and accuracy metrics displayed above or beside the typing area; (3) a language selector with options: Java, C, HTML/CSS, Python, SQL; (4) a difficulty selector with options: Easy, Medium, Hard — difficulty affects snippet complexity and length; (5) a Reset/New Snippet button.",
+      "files": [
+        "frontend/src/pages/Practice.tsx",
+        "frontend/src/utils/codeSnippets.ts",
+        "frontend/src/utils/typingMetrics.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-learn-page-with-four-informational-sections-1-typing-tips-for-programmers-a-list-of-actionable-tips-specific-to-coding-2-finger-placement-guide-a-visual-or-descriptive-guide-for-proper-finger-positioning-on-the-keyboard-3-common-coding-mistakes-a-list-of-frequent-errors-coders-make-while-typing-e-g-bracket-mismatch-wrong-indentation-syntax-4-keyboard-shortcuts-a-reference-table-of-common-ide-editor-shortcuts-vs-code-general-terminal-etc",
+      "featureTitle": "Build the Learn page with four informational sections: (1) Typing Tips for Programmers — a list of actionable tips specific to coding; (2) Finger Placement Guide — a visual or descriptive guide for proper finger positioning on the keyboard; (3) Common Coding Mistakes — a list of frequent errors coders make while typing (e.g., bracket mismatch, wrong indentation syntax); (4) Keyboard Shortcuts — a reference table of common IDE/editor shortcuts (VS Code, general terminal, etc.).",
+      "files": [
+        "frontend/src/pages/Learn.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-test-page-with-four-test-modes-selectable-via-tabs-or-cards-1-timed-test-user-types-as-much-code-as-possible-within-a-chosen-countdown-15s-30s-60s-120s-2-speed-test-user-types-a-fixed-snippet-as-fast-as-possible-timer-runs-until-completion-3-accuracy-test-user-must-reach-a-target-accuracy-percentage-e-g-95-with-strict-error-feedback-4-custom-test-user-can-input-their-own-code-snippet-to-type-all-modes-display-final-wpm-accuracy-and-time-on-completion",
+      "featureTitle": "Build the Test page with four test modes selectable via tabs or cards: (1) Timed Test — user types as much code as possible within a chosen countdown (15s, 30s, 60s, 120s); (2) Speed Test — user types a fixed snippet as fast as possible, timer runs until completion; (3) Accuracy Test — user must reach a target accuracy percentage (e.g., 95%) with strict error feedback; (4) Custom Test — user can input their own code snippet to type. All modes display final WPM, accuracy, and time on completion.",
+      "files": [
+        "frontend/src/components/TestResults.tsx",
+        "frontend/src/pages/Test.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-progress-stats-page-that-reads-from-the-backend-to-display-1-wpm-history-a-line-chart-showing-wpm-over-time-across-sessions-2-accuracy-graph-a-line-or-bar-chart-showing-accuracy-percentage-over-sessions-3-daily-streaks-a-streak-counter-and-a-calendar-heatmap-showing-days-the-user-completed-at-least-one-test-4-summary-stats-best-wpm-average-wpm-total-tests-taken-average-accuracy",
+      "featureTitle": "Build the Progress/Stats page that reads from the backend to display: (1) WPM History — a line chart showing WPM over time across sessions; (2) Accuracy Graph — a line or bar chart showing accuracy percentage over sessions; (3) Daily Streaks — a streak counter and a calendar heatmap showing days the user completed at least one test; (4) Summary stats: best WPM, average WPM, total tests taken, average accuracy.",
+      "files": [
+        "frontend/src/pages/Progress.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-challenges-page-with-three-challenge-categories-1-daily-challenges-a-rotating-set-of-daily-typing-challenges-e-g-type-a-python-snippet-in-under-60s-with-90-accuracy-2-weekly-challenges-longer-or-harder-challenges-that-reset-weekly-3-level-based-challenges-a-progression-of-challenges-from-beginner-to-expert-with-clear-level-indicators-each-challenge-card-shows-title-description-requirements-and-a-start-challenge-button-that-launches-the-appropriate-test",
+      "featureTitle": "Build the Challenges page with three challenge categories: (1) Daily Challenges — a rotating set of daily typing challenges (e.g., type a Python snippet in under 60s with 90% accuracy); (2) Weekly Challenges — longer or harder challenges that reset weekly; (3) Level-Based Challenges — a progression of challenges from beginner to expert with clear level indicators. Each challenge card shows: title, description, requirements, and a 'Start Challenge' button that launches the appropriate test.",
+      "files": [
+        "frontend/src/pages/Challenges.tsx",
+        "frontend/src/utils/challenges.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-profile-page-displaying-user-s-display-name-editable-avatar-placeholder-lifetime-stats-summary-total-tests-best-wpm-avg-accuracy-current-streak-and-recent-test-history-as-a-table",
+      "featureTitle": "Build a Profile page displaying: user's display name (editable), avatar placeholder, lifetime stats summary (total tests, best WPM, avg accuracy, current streak), and recent test history as a table.",
+      "files": [
+        "frontend/src/pages/Profile.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-global-settings-panel-accessible-from-every-page-via-a-settings-icon-button-in-the-navigation-settings-must-include-1-light-dark-mode-toggle-applies-theme-globally-and-persists-in-localstorage-2-font-size-control-slider-or-buttons-to-increase-decrease-the-font-size-of-the-typing-area-and-ui-text-range-small-medium-large-x-large-3-font-style-selector-dropdown-populated-with-google-fonts-at-minimum-fira-code-jetbrains-mono-source-code-pro-roboto-mono-ubuntu-mono-applied-to-the-typing-area-4-backspace-allowed-toggle-when-off-the-backspace-key-is-disabled-during-typing-tests-and-practice",
+      "featureTitle": "Implement a global Settings panel accessible from every page (via a settings icon/button in the navigation). Settings must include: (1) Light/Dark mode toggle — applies theme globally and persists in localStorage; (2) Font Size control — slider or +/- buttons to increase/decrease the font size of the typing area and UI text (range: small, medium, large, x-large); (3) Font Style selector — dropdown populated with Google Fonts (at minimum: Fira Code, JetBrains Mono, Source Code Pro, Roboto Mono, Ubuntu Mono) applied to the typing area; (4) Backspace Allowed toggle — when OFF, the Backspace key is disabled during typing tests and practice.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/contexts/SettingsContext.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-cohesive-dark-tech-terminal-inspired-visual-theme-across-the-entire-application-deep-dark-backgrounds-near-black-charcoal-neon-accent-colors-e-g-electric-green-or-cyan-monospace-typography-for-code-elements-card-based-layouts-with-subtle-borders-and-glows-smooth-transitions-and-hover-states-ensure-the-light-mode-variant-uses-off-white-light-gray-backgrounds-with-muted-accent-tones-typography-hierarchy-should-be-clean-and-modern",
+      "featureTitle": "Apply a cohesive dark-tech / terminal-inspired visual theme across the entire application: deep dark backgrounds (near-black/charcoal), neon accent colors (e.g., electric green or cyan), monospace typography for code elements, card-based layouts with subtle borders and glows, smooth transitions and hover states. Ensure the light mode variant uses off-white/light gray backgrounds with muted accent tones. Typography hierarchy should be clean and modern.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-entire-application-is-fully-responsive-across-all-device-sizes-mobile-320px-tablet-768px-and-desktop-1024px-navigation-collapses-on-mobile-typing-areas-scale-appropriately-charts-and-stats-reflow-on-smaller-screens-and-touch-interactions-are-supported-for-the-typing-area",
+      "featureTitle": "Ensure the entire application is fully responsive across all device sizes: mobile (320px+), tablet (768px+), and desktop (1024px+). Navigation collapses on mobile, typing areas scale appropriately, charts and stats reflow on smaller screens, and touch interactions are supported for the typing area.",
+      "files": [
+        "frontend/src/components/Navigation.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/Practice.tsx",
+        "frontend/src/pages/Progress.tsx",
+        "frontend/src/pages/Test.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

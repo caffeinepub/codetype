@@ -1,0 +1,276 @@
+{
+  "kind": "build_request",
+  "title": "CodeType — Coding Typing Test Web Application",
+  "projectName": "CodeType",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a multi-page React application with a persistent navigation sidebar/topbar containing links to: Home, Practice, Learn, Test, Progress/Stats, Challenges, Profile, and Settings. Navigation must be fully responsive (hamburger menu on mobile).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "it should contain pages like home, progress/stats, practice, challenges, profile, test, settings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All 8 pages are accessible from the navigation",
+        "Active page is visually highlighted in the nav",
+        "Navigation collapses to a hamburger menu on mobile screens",
+        "Navigation persists across all pages"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build the Home page with: (1) a hero section introducing the app as a coding-focused typing trainer with a headline, brief description, and a prominent 'Start Typing' CTA button that navigates to the Practice page; (2) a Features Overview section showcasing key app features with icons and short descriptions; (3) a Contact/Feedback section with a simple form (name, email, message fields) and a submit button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "homepage it should contain website intro, start typing (it should redirect to practice page), contact/feedback, features overview"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section renders with headline and CTA button",
+        "Clicking 'Start Typing' navigates to the Practice page",
+        "Features Overview section displays at least 4 features with icons",
+        "Contact/Feedback form renders with name, email, message fields and submit button",
+        "Home page is responsive across all screen sizes"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the Practice page with: (1) a typing area displaying a code snippet where typed characters are highlighted correct (green) or incorrect (red) in real time; (2) live WPM and accuracy metrics displayed above or beside the typing area; (3) a language selector with options: Java, C, HTML/CSS, Python, SQL; (4) a difficulty selector with options: Easy, Medium, Hard — difficulty affects snippet complexity and length; (5) a Reset/New Snippet button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "practice page it should contain start typing where it should provide space for test typing speed along with wpm accuracy, option with practice by language where languages should be provided (java, c, html/css, python, sql etc) also mention difficulty level like easy medium hard"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Typing area renders a code snippet monospace font",
+        "Each keystroke immediately colors the character green (correct) or red (incorrect)",
+        "WPM updates in real time during typing",
+        "Accuracy percentage updates in real time",
+        "Language selector has Java, C, HTML/CSS, Python, SQL options",
+        "Difficulty selector has Easy, Medium, Hard options",
+        "Changing language or difficulty loads a new appropriate snippet",
+        "Reset button restarts the current snippet"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the Learn page with four informational sections: (1) Typing Tips for Programmers — a list of actionable tips specific to coding; (2) Finger Placement Guide — a visual or descriptive guide for proper finger positioning on the keyboard; (3) Common Coding Mistakes — a list of frequent errors coders make while typing (e.g., bracket mismatch, wrong indentation syntax); (4) Keyboard Shortcuts — a reference table of common IDE/editor shortcuts (VS Code, general terminal, etc.).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "in learn page add typing tips for programmers, finger placement guide, common coding mistakes, keyboard short cuts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All four sections are present and labeled clearly",
+        "Typing Tips section has at least 5 tips",
+        "Finger Placement Guide section has a clear visual or diagram description",
+        "Common Coding Mistakes section has at least 5 entries",
+        "Keyboard Shortcuts section renders a structured table with shortcut + description columns",
+        "Page is readable and responsive"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build the Test page with four test modes selectable via tabs or cards: (1) Timed Test — user types as much code as possible within a chosen countdown (15s, 30s, 60s, 120s); (2) Speed Test — user types a fixed snippet as fast as possible, timer runs until completion; (3) Accuracy Test — user must reach a target accuracy percentage (e.g., 95%) with strict error feedback; (4) Custom Test — user can input their own code snippet to type. All modes display final WPM, accuracy, and time on completion.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "test page with timed test, speed test, accuracy test, custom test"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Four test modes are accessible via tabs or mode selector cards",
+        "Timed Test mode has duration options (15s, 30s, 60s, 120s) and counts down",
+        "Speed Test mode starts timer on first keystroke and stops on completion",
+        "Accuracy Test mode enforces a minimum accuracy threshold",
+        "Custom Test mode has a textarea for pasting user's own code snippet",
+        "Results screen shows WPM, accuracy, and elapsed/remaining time after each test"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement backend storage for test results. Each completed test session should persist: timestamp, WPM, accuracy, test mode, language, difficulty, and duration. Expose query functions to retrieve all sessions for stats display.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "progress/ stats page with wpm history, accuracy graph, daily streaks"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend actor stores test result records with all required fields",
+        "saveResult update function accepts and stores a test result",
+        "getResults query function returns all stored results",
+        "Data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build the Progress/Stats page that reads from the backend to display: (1) WPM History — a line chart showing WPM over time across sessions; (2) Accuracy Graph — a line or bar chart showing accuracy percentage over sessions; (3) Daily Streaks — a streak counter and a calendar heatmap showing days the user completed at least one test; (4) Summary stats: best WPM, average WPM, total tests taken, average accuracy.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "progress/ stats page with wpm history, accuracy graph, daily streaks"
+        ]
+      },
+      "acceptanceCriteria": [
+        "WPM history chart renders with session data points",
+        "Accuracy graph renders with session data points",
+        "Daily streak counter shows current streak",
+        "Calendar heatmap or similar visualization shows active test days",
+        "Summary stats (best WPM, avg WPM, total tests, avg accuracy) are displayed",
+        "Charts and stats update when new test results are saved"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build the Challenges page with three challenge categories: (1) Daily Challenges — a rotating set of daily typing challenges (e.g., type a Python snippet in under 60s with 90% accuracy); (2) Weekly Challenges — longer or harder challenges that reset weekly; (3) Level-Based Challenges — a progression of challenges from beginner to expert with clear level indicators. Each challenge card shows: title, description, requirements, and a 'Start Challenge' button that launches the appropriate test.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "challenges page with daily challenges, weekly challenges, level based challenges"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three sections: Daily, Weekly, and Level-Based are clearly separated",
+        "Each challenge renders as a card with title, description, and requirements",
+        "'Start Challenge' button launches the test with the challenge configuration",
+        "Level-Based challenges show progression (e.g., Level 1 through Level 10)",
+        "Daily and Weekly challenges show a reset timer or refresh date"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Build a Profile page displaying: user's display name (editable), avatar placeholder, lifetime stats summary (total tests, best WPM, avg accuracy, current streak), and recent test history as a table.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "pages like home, progress/stats, practice, challenges, profile, test, settings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile page displays display name with an edit option",
+        "Avatar placeholder is shown",
+        "Lifetime stats section shows total tests, best WPM, avg accuracy, streak",
+        "Recent activity table shows last 10 test results with date, WPM, accuracy, mode"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement a global Settings panel accessible from every page (via a settings icon/button in the navigation). Settings must include: (1) Light/Dark mode toggle — applies theme globally and persists in localStorage; (2) Font Size control — slider or +/- buttons to increase/decrease the font size of the typing area and UI text (range: small, medium, large, x-large); (3) Font Style selector — dropdown populated with Google Fonts (at minimum: Fira Code, JetBrains Mono, Source Code Pro, Roboto Mono, Ubuntu Mono) applied to the typing area; (4) Backspace Allowed toggle — when OFF, the Backspace key is disabled during typing tests and practice.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "add settings to every page with light/dark mode , font size to increase or decrease font size, font style to change font style use google fonts, backspace allowed toggle where it should control backspace key"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Settings panel or page is reachable from navigation on every page",
+        "Light/Dark mode toggle switches the entire app theme",
+        "Theme preference persists across page refreshes via localStorage",
+        "Font size control has at least 4 size levels and updates text throughout the app",
+        "Font style dropdown lists at least 5 Google Fonts monospace options and applies to the typing area",
+        "Backspace Allowed toggle, when disabled, prevents the backspace key from deleting characters during typing",
+        "All settings persist in localStorage"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Apply a cohesive dark-tech / terminal-inspired visual theme across the entire application: deep dark backgrounds (near-black/charcoal), neon accent colors (e.g., electric green or cyan), monospace typography for code elements, card-based layouts with subtle borders and glows, smooth transitions and hover states. Ensure the light mode variant uses off-white/light gray backgrounds with muted accent tones. Typography hierarchy should be clean and modern.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "modern interface",
+          "make it responsive for any device"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dark mode uses deep charcoal/near-black backgrounds with neon accent colors",
+        "Light mode uses clean off-white/gray backgrounds with complementary accents",
+        "Code snippets and typing areas use a monospace Google Font",
+        "Cards, buttons, and interactive elements have consistent styling with hover/focus states",
+        "Theme is applied consistently across all pages"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Ensure the entire application is fully responsive across all device sizes: mobile (320px+), tablet (768px+), and desktop (1024px+). Navigation collapses on mobile, typing areas scale appropriately, charts and stats reflow on smaller screens, and touch interactions are supported for the typing area.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "make it responsive for any device"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout renders correctly at 320px, 768px, and 1280px widths",
+        "No horizontal overflow on any page at mobile widths",
+        "Charts resize and remain readable on mobile",
+        "Typing area is usable on touch devices",
+        "Navigation is usable on all screen sizes"
+      ]
+    }
+  ],
+  "constraints": [
+    "All Motoko logic must remain in a single actor in backend/main.mo",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "Google Fonts must be loaded via CSS @import or link tag, not via a third-party npm package that requires API keys",
+    "Settings (theme, font size, font style, backspace toggle) must persist in localStorage on the frontend only"
+  ],
+  "nonGoals": [
+    "User authentication or Internet Identity login",
+    "Real-time multiplayer typing races",
+    "Backend storage for settings (settings are client-side only)",
+    "Mobile native app or PWA features",
+    "External API integrations for code snippets (snippets are hardcoded)",
+    "Social sharing or leaderboards"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Dark terminal-style hero background with faint green matrix-like code characters on a deep charcoal gradient (hero-bg.dim_1440x800.png)",
+      "Keyboard diagram illustration showing finger placement zones in neon color-coded regions on a dark background (finger-placement.dim_800x300.png)",
+      "App logo mark — a minimalist glowing cursor symbol combined with angle brackets forming a code icon (logo-icon.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}
